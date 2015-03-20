@@ -13,22 +13,30 @@ class Range
       raise ArgumentError.new(err)
     end
 
-    if into == 1
-      [self]
-    else
-      partition = min + (count.to_f / into).ceil - 1
+    quotient = count.div into
+    modulo = count % into
 
-      if max == partition
-        [self]
-      else
-        args = params.merge(:into => into - 1)
-        partition -= 1 if endianness == :little
+    splitted = []
+    from = min
 
-        head = min..partition
-        tail = ((partition + 1)..max).split(args)
+    group_count = [count, into].min
 
-        [head] + tail
+    group_count.times do |index|
+      step = quotient - 1
+
+      if modulo > 0
+        step += if endianness == :little
+                  (index + 1 > group_count - modulo ? 1 : 0)
+                else
+                  (modulo > index ? 1 : 0)
+                end
       end
+
+      to = from + step
+      splitted << (from..to)
+      from = to + 1
     end
+    splitted
   end
+
 end
