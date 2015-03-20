@@ -15,32 +15,28 @@ class Range
     quotient = count.div into
     modulo = count % into
 
-    splitted = []
     from = min
 
     group_count = [count, into].min
 
-    group_count.times do |index|
-      step = quotient - 1
+    Enumerator.new do |splitted|
+      group_count.times do |index|
+        step = quotient - 1
 
-      if modulo > 0
-        step += if endianness == :little
-                  (index + 1 > group_count - modulo ? 1 : 0)
-                else
-                  (modulo > index ? 1 : 0)
-                end
+        if modulo > 0
+          step += if endianness == :little
+                    (index + 1 > group_count - modulo ? 1 : 0)
+                  else
+                    (modulo > index ? 1 : 0)
+                  end
+        end
+
+        to = from + step
+        splitted << (from..to)
+        from = to + 1
       end
-
-      to = from + step
-      splitted << (from..to)
-      from = to + 1
     end
 
-    if block_given?
-      splitted.each {|s| yield(s) }
-    else
-      splitted
-    end
   end
 
 end
