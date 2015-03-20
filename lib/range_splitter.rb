@@ -35,7 +35,12 @@ class Range
       splitted << (from..to)
       from = to + 1
     end
-    splitted
+
+    if block_given?
+      splitted.each {|s| yield(s) }
+    else
+      splitted
+    end
   end
 
 end
