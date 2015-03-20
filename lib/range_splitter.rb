@@ -6,6 +6,7 @@ class Range
       raise ArgumentError.new(err)
     end
 
+    into = into.to_i
     if into <= 0
       err = "Cannot split #{self} into #{into} ranges."
       raise ArgumentError.new(err)
