@@ -1,7 +1,5 @@
 class Range
-  def split(params = {})
-    into = params[:into] || 2
-    endianness = params[:endianness] || :big
+  def split(into: 2, endianness: :big)
 
     unless [:big, :little].include?(endianness)
       err = 'The endianness parameter must be either :big or :little'
