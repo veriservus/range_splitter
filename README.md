@@ -52,7 +52,7 @@ Feel free to contribute. No commit is too small.
 
 You should follow me: [@cpatuzzo](https://twitter.com/cpatuzzo)
 
-## Suggested changes
+## Suggested changes a.k.a. code review
 
 * [Use keyword arguments](https://github.com/veriservus/range_splitter/blob/419ce7ea796b6c762d1bbc123a2388a29a319339/lib/range_splitter.rb#L2-4)
   https://github.com/veriservus/range_splitter/commit/2a9621dcfe9cbec761658a5f722333970565e453
@@ -64,4 +64,5 @@ You should follow me: [@cpatuzzo](https://twitter.com/cpatuzzo)
 * Consume block and yield resulting ranges (after modifying code to be a loop based rather than recursion based)
   https://github.com/veriservus/range_splitter/commit/f13ad05d8b4a140aff9b353081d34d564f0ecf71
 
-* Change endianness paramter to something more meaningful in this context
+* Change endianness paramter to something more meaningful in this context. This is just personal taste but endianness in my head is associated with packing siginficant bytes of in-memory representation of integers
+* [Check if there would be a benefit of working with or returning Enumerator](https://github.com/veriservus/range_splitter/commit/27865a32066827e4011c446afa4454731076a244) I don't think it beneficial in this particular use but still worth giving a shot
