@@ -51,3 +51,11 @@ require 'range_splitter'
 Feel free to contribute. No commit is too small.
 
 You should follow me: [@cpatuzzo](https://twitter.com/cpatuzzo)
+
+## Suggested changes
+
+* [Use keyword arguments](https://github.com/veriservus/range_splitter/blob/419ce7ea796b6c762d1bbc123a2388a29a319339/lib/range_splitter.rb#L2-4)
+* [Remove recursive call](https://github.com/veriservus/range_splitter/blob/419ce7ea796b6c762d1bbc123a2388a29a319339/lib/range_splitter.rb#L28)
+* [Typecheck for range of something else than integers](https://github.com/veriservus/range_splitter/blob/419ce7ea796b6c762d1bbc123a2388a29a319339/lib/range_splitter.rb#L6-14)
+* Consume block and yield resulting ranges (after modifying code to be a loop based rather than recursion based)
+* Change endianness paramter to something more meaningful in this context
